@@ -17,6 +17,9 @@ html {
   font-size: 18px;
   background-color: #1b1919;
   padding: 133px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1,
@@ -45,10 +48,16 @@ ol {
   align-items: end;
 }
 
-.content__details {
+.content__detail {
   height: 534px;
   max-width: 399px;
-  overflow-x: hidden;
+  overflow-x: auto;
+  overflow-y: scroll;
+}
+
+.content__list {
+  height: 298px;
+  overflow-x: auto;
   overflow-y: scroll;
 }
 
@@ -63,14 +72,13 @@ ol {
 }
 
 .result__video {
-  width: 100%;
-  height: 100%;
+  object-fit: fill;
+  object-position: bottom center;
 }
 
 .search-form {
   display: grid;
   grid-template-columns: 225px 212px 194px;
-  grid-template-rows: 54px;
   gap: 40px;
 }
 
@@ -98,6 +106,8 @@ ol {
 }
 
 .content__video-card-thumbnail {
+  object-fit: cover;
+  object-position: center;
   width: 194px;
   height: 103px;
 }
@@ -129,24 +139,30 @@ ol {
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 6px;
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  overflow: hidden;
+  max-width: 200px;
+
 }
 
-.content__video-card-title:hover {
+/*.content__video-card-title:hover {
   text-decoration: underline 1px;
   text-underline-offset: 2px;
-}
+}*/
 
 .content__video-card-description {
   font-weight: 400;
   line-height: 16.2px;
   font-size: 18px;
   font-family: 'Fira Sans Condensed', Arial, serif;
+  max-width: 200px;
 }
 
-.content__video-card-description:hover {
+/*.content__video-card-description:hover {
   text-decoration: underline 1px;
   text-underline-offset: 2px;
-}
+}*/
 
 .visually-hidden {
   position: absolute;
@@ -164,6 +180,7 @@ ol {
 
 .search-form__label {
   width: fit-content;
+  cursor: pointer;
 }
 
 .button {
@@ -171,7 +188,7 @@ ol {
   height: 34px;
   background-color: transparent;
   color: #fff;
-  border: 1px solid #fff;
+  border: 1px solid currentColor;
   font-weight: 700;
   font-family: 'Fira Sans Condensed', Arial, serif;
   text-align: center;
@@ -182,7 +199,7 @@ ol {
   margin-top: 20px;
 }
 
-.search-form__submit-button:hover {
+.button:hover {
   text-decoration: underline 1px;
   text-underline-offset: 2px;
 }
@@ -194,7 +211,7 @@ ol {
 .search-form__textfield {
   background-color: transparent;
   border: none;
-  border-top: 1px solid #fff;
+  border-top: 1px solid currentColor;
   border-bottom: 1px solid #fff;
   width: 225px;
   font-size: 18px;
@@ -231,16 +248,17 @@ input[type="checkbox"]:checked + span {
   background-color: #fff;
   outline: 1px solid #333;
   outline-offset: -2px;
+  cursor: pointer;
 }
 
-.search-form__label-text:hover {
+.search-form__label:has(.search-form__label-text):hover {
   text-decoration: underline 1px;
   text-underline-offset: 2px;
 }
 
 .content__video-card:has(img):hover {
   text-decoration: underline 1px;
-  text-underline-offset: 5px;
+  text-underline-offset: 6px;
 }
 
 .content__card-link_current {
@@ -252,6 +270,17 @@ input[type="checkbox"]:checked + span {
   margin: 2px;
 }
 
+.content-detail:active {
+  height: 534px;
+  max-width: 399px;
+  overflow-x: auto;
+  overflow-y: scroll;
+}
+
+.content__card-link:active {
+  background-color: #545050;
+}
+
 .content__video-card-description-container {
   padding: 6px 0 4px 2px;
 }
@@ -260,18 +289,18 @@ input[type="checkbox"]:checked + span {
   padding: 4px;
 }
 
-.content__list-item:focus {
+.content__card-link:focus {
   outline: none;
   padding: 2px;
 }
 
-.content__list-item:focus-visible {
+.content__list-link:focus-visible {
   border: 1px solid #fff;
   outline: none;
   padding: 2px;
 }
 
-.search-form__submit-button:active {
+.button:active {
   background-color: #545050;
 }
 
@@ -290,4 +319,19 @@ input[type="checkbox"]:checked + span {
 
 .button:focus-visible {
   border: 2px solid #fff;
+}
+
+.content__video-card-title:has(.content__video-card-thumbnail):hover {
+  text-decoration: underline 1px;
+  text-underline-offset: 5px;
+}
+
+.content__video-card-description:has(.content__video-card-thumbnail):hover {
+  text-decoration: underline 1px;
+  text-underline-offset: 5px;
+}
+
+.content__video-card:has(.content__video-card-thumbnail):hover {
+  text-decoration: underline 1px;
+  text-underline-offset: 5px;
 }
