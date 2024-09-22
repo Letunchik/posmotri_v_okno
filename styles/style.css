@@ -79,7 +79,7 @@ ol {
 .search-form {
   display: grid;
   grid-template-columns: 225px 212px 194px;
-  grid-template-rows: 57px;
+  /*grid-template-rows: 57px;*/
   gap: 40px;
 }
 
@@ -262,9 +262,14 @@ input[type="checkbox"]:checked + span {
   cursor: pointer;
 }
 
-.search-form__label:has(.search-form__label-text):hover {
+.search-form__label:hover .search-form__label-text {
   text-decoration: underline 1px;
   text-underline-offset: 2px;
+}
+
+/*.search-form__label:has(.search-form__label-text):hover {
+  text-decoration: underline 1px;
+  text-underline-offset: 2px;*/
 }
 
 .content__video-card:has(img):hover {
