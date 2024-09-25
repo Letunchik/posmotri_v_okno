@@ -43,8 +43,9 @@ ol {
 
 .content {
   display: flex;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
   gap: 30px;
+  inline-size: 1140px;
   align-items: end;
 }
 
@@ -68,7 +69,8 @@ ol {
 .result__video-container {
   width: 711px;
   height: 386px;
-  margin-bottom: 23px;
+  position: relative;
+  margin-bottom: 20px;
 }
 
 .result__video {
@@ -117,11 +119,6 @@ ol {
 /*.content__list {
   position: relative;
 }*/
-
-.result__video-container {
-  position: relative;
-  margin-bottom: 15px;
-}
 
 .result__video {
   width: 100%;
